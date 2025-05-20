@@ -1,0 +1,43 @@
+#Here's the git documentation page on .gitignore files.  See how they work, where they can be located, and how patterns within them function:
+#https://git-scm.com/docs/gitignore
+
+#See GitHub's repo with all the templates that are used to populate the menu when you create a .gitignore using the GitHub ui:
+#https://github.com/github/gitignore
+
+#The following is a basic list of files and directories that could be commonly ignored, but it may be necessary to build a more context sensitive .gitignore for any given repo.
+#In order to activate any of these patterns, you will need to remove the # comment marker.
+
+#Global
+#*.png
+#*.jpg
+#*.jpeg
+#*.svg
+#*.pdf
+#*.csv
+#*.xlsx
+#*.xls
+
+#Java
+# Compiled class file
+#*.class
+# Package Files #
+#*.jar
+#*.war
+#*.ear
+#*.zip
+#*.tar.gz
+#*.rar
+
+#Javascript
+#node_modules/
+#public/
+#.config
+#.prettier
+#.env
+
+#Python
+#*.pyc
+
+#MacOS
+#.DS_Store
+#.Trashes

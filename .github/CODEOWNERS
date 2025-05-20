@@ -1,0 +1,54 @@
+# This is a comment.
+# Each line is a file pattern followed by one or more owners.
+# After appropriate values for your repo and teams have
+# been added, you will need to remove the comment (hash sign)
+# to activate each file pattern that you wish to use.
+
+# https://help.github.com/en/github/creating-cloning-and-archiving-repositories/about-code-owners
+# provides further background.
+
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# the members of the @cigna/ABC-app-admin-team will be requested for
+# review when someone opens a pull request.  Generally, each
+# repo should should have a defined admin Github Team
+# as it's documented owners. The asterisk will act 
+# as a global wildcard that encompasses all files.  
+# When referencing a team, it MUST be prefixed with org/!
+
+#*       @cigna/ABC-app-admin-team
+
+# Order is important; the last matching pattern takes the most
+# precedence. When someone opens a pull request that only
+# modifies JS files, only the members of @cigna/ABC-app-js-team,
+# and not the global owner(s) will be requested for a review.
+
+#*.js    @cigna/ABC-app-js-team
+
+# If needed, you can also use email addresses and Github handles
+# to identify the desired owners.
+
+#*.py   jim.pyman@cigna.com monty.p@cigna.com
+#*.java @cindy-bean-ch @chloe-coder-ch
+
+# In this example, members of @cigna/ABC-app-log-team own any files
+# in the build/logs directory at the root of the repository and 
+# any of its subdirectories.
+
+#/build/logs/ @cigna/ABC-app-log-team
+
+# The `docs/*` pattern will match files like
+# `docs/getting-started.md` but not further nested files like
+# `docs/build-app/troubleshooting.md`.
+
+#docs/*  @cigna/ABC-app-log-team
+
+# In this example, members of @cigna/ABC-app-dev-team own any file in
+# an apps directory anywhere in your repository.
+
+#apps/ @cigna/ABC-app-dev-team
+
+# In this example, members of @cigna/ABC-app-docs-team own any file in 
+# the `/docs` directory in the root of your repository. 
+
+#/docs/ @cigna/ABC-app-docs-team
