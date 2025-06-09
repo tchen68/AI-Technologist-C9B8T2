@@ -4,8 +4,8 @@ In this lab, we will take the retrival method we built for our vector database t
 
 ## Prerequisites
 
-1. Configure ai-quickstart\Lab4\backend\chatbot.env with the same credentials you used in the previous labs.
-2. If you haven't already, install requirements from ai-quickstart\requirements.txt into your virtual environment (See README.md). Ensure you activate the environment. 
+1. Configure AITechnologistLabs\Lab4\backend\chatbot.env with the same credentials you used in the previous labs.
+2. If you haven't already, install requirements from AITechnologistLabs\requirements.txt into your virtual environment (See README.md). Ensure you activate the environment. 
 3. Download and install Node.js via the Cigna FOSS self-service portal or via the web: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 ## Getting Started
@@ -47,16 +47,16 @@ There are also many different web frameworks we can use for our frontend to inte
         |   |  ├──App.js
         |   |  ├──index.css
         |   |  ├──index.js
-        |   ├──package.md
-        |   ├──package-lock.md
+        |   ├──package.json
+        |   ├──package-lock.json
 
 #### 1. `node_modules/` folder stores all dependencies (packages and libraries) your application requires to run. This is automatically managed by npm.
 #### 2. `public/` typically stores common image resources and icons that your application may use.
 #### 3. `src/scenes/chatbot.jsx` holds the actual chatbot component and API calls to our backend.
 #### 4. `src/App.js` is the central component of our application. It serves as the entry point to the UI. We import and load the chatbot component here.
 #### 5. `src/index.js` is responsible for rendering the central component (App.js) into the DOM.
-#### 6. `package.md` contains information on dependencies, scripts, configurations, and other metadata for our application.
-#### 7. `package-lock.md` is automatically generated based on `package.md` whenever you modify your application dependencies (`npm install` or `npm update` a package).
+#### 6. `package.json` contains information on dependencies, scripts, configurations, and other metadata for our application.
+#### 7. `package-lock.json` is automatically generated based on `package.json` whenever you modify your application dependencies (`npm install` or `npm update` a package).
 
         
 ## Running the Application
@@ -69,7 +69,7 @@ C:\path\to\backend> python app.py
 
 This will start our Flask API service on port 5000 so that our frontend can connect to the backend.
 
-### 2. Open another terminal and cd into the `/ai-quickstart/Lab4/chatbot-ui` folder
+### 2. Open another terminal and cd into the `/AITechnologistLabs/Lab4/chatbot-ui` folder
 
 >The frontend we have made for this application utilizes the [Cigna Canvas styling library](https://canvas-dev.cignacloud.com/getting-started). 
 
@@ -89,5 +89,5 @@ You now have a full-stack RAG AI chatbot running on your local machine! However,
 
 **Answer questions 1-2 in ```LAB_4_QUESTIONS.md```.**
 
-Congratulations! You have completed Lab 4 of the AI Technologist Course. Follow the instructions in ai-quickstart/README.md to publish your labs to GitHub for review. Return to the content in myUniversity to continue the course.
+Congratulations! You have completed Lab 4 of the AI Technologist Course. Follow the instructions in AITechnologistLabs/README.md to publish your labs to GitHub for review. Return to the content in myUniversity to continue the course.
 
