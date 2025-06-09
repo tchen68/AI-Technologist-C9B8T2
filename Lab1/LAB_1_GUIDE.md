@@ -6,7 +6,7 @@
 
 In this lab, you will learn how to create simple chat completions using Azure OpenAI.
 
-Ensure you have properly set up your environment to complete Lab 1. Refer back to `ai-quickstart/README.md` if you need to.
+Ensure you have properly set up your environment to complete Lab 1. Refer back to `AITechnologistLabs/README.md` if you need to.
 
 #### First, let's look at the files included in this lab.
         Lab1/
@@ -57,7 +57,7 @@ The second parameter you must pass is the ```messages``` object (line 27). The `
         ]
 ```
 
-Your script is complete! From the root folder (ai-quickstart), run ```python -m Lab1.basic_azure_completions```. Ensure you are in your python virtual environment with the required dependencies installed (see README.md).
+Your script is complete! From the root folder (AITechnologistLabs), run ```python -m Lab1.basic_azure_completions```. Ensure you are in your python virtual environment with the required dependencies installed (see README.md).
 
 **Answer questions 2 & 3 in ```LAB_1_QUESTIONS.md```**
 
@@ -67,7 +67,7 @@ Note the different fields included in the response, including chat id, a list of
 
 Adjust the system role prompt to ```"You are a helpful Meteorology assistant. Only answer questions about Meteorology."``` Rerun the script with a user prompt that has nothing to do with meteorology. Notice the bot's response. 
 
-Now, change the system role prompt to ```"You are a helpful assistant designed to respond in md format."```. Set the user prompt to ```Give me a list of countries and cities in those countries.``` Run the code and look at the response message.
+Now, change the system role prompt to ```"You are a helpful assistant designed to respond in json format."```. Set the user prompt to ```Give me a list of countries and cities in those countries.``` Run the code and look at the response message.
 
 **Answer question 5 in ```LAB_1_QUESTIONS.md```**
 
