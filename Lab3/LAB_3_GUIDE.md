@@ -13,7 +13,7 @@ Ensure you have properly set up your environment to complete Lab 3. Refer back t
         ├──basic_azure_RAG.py
         ├──basic_vectorization.py
         ├──LAB_3_GUIDE.md (You are here)
-        ├──LAB_3_QUESTIONS.json
+        ├──LAB_3_QUESTIONS.md
         ├──data/
         ├──utils/
             ├──utils.py
@@ -22,7 +22,7 @@ Ensure you have properly set up your environment to complete Lab 3. Refer back t
 >1. `basic_azure_RAG.py` is the template in which you will create the RAG bot.
 >2. `basic_vectorization.py` is where you will ingest the text data, vectorize it, and upload it to your vector database.
 >2. `LAB_3_GUIDE.md` This is what you are currently looking at.
->3. `LAB_3_QUESTIONS.json` This is where you should type your responses to the lab questions.
+>3. `LAB_3_QUESTIONS.md` This is where you should type your responses to the lab questions.
 >3. `data/` this is a directory where you can store pure text (.txt) files to ingest into your vector database.
 >5. `utils/utils.py` Contains various utilities that we will use in the pipeline, including text processing and LLM functions.
 >6. `utils/vectordb.py` Contains functions for interacting with your vector database.
@@ -72,7 +72,7 @@ Now that we have a list of text chunks, we want to enumerate these chunks and sa
 
 Run ```python -m Lab3.basic_vectorization``` from the root folder (ai-quickstart). Print the text_and_embeddings object and observe it.
 
-**Answer question 1 in ```LAB_3_QUESTIONS.json```.**
+**Answer question 1 in ```LAB_3_QUESTIONS.md```.**
 
 ### 2. Storing the Vectors
 
@@ -167,7 +167,7 @@ Our conversation with context object is now ready to send to the LLM. Call the b
 
 Run ```python -m Lab3.basic_azure_RAG``` from the root directory (ai-quickstart). Ask the bot what your favorite food is.
 
-***Answer Question 2-4 in LAB_3_QUESTIONS.json***
+***Answer Question 2-4 in LAB_3_QUESTIONS.md***
 
 Congratulations! You have successfully built a RAG pipeline, starting with ingesting text data into a vector database all the way to context retrieval and generation. We only embedded a small amount of data and implemented a very simple semantic search (Euclidean distance). We highly encourage exploring more advanced methods of RAG implementation, including chunking strategies, prompt chaining, embedding optimizations, and more! Try ingesting larger text documents into the pipeline and asking the bot relevant questions to test its results.
 

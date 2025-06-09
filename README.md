@@ -1,81 +1,109 @@
-# Project Title
+# AI Quickstart
 
-One Paragraph of project description goes here.  Describe what the project does and why it is useful.
+#### This repo contains labs for the AI Technologist Course.
+---
 
-## Getting Started
+## Prerequisites
+You should have a python development environment set up (i.e. an installation of python and an IDE of your choice). We recommend python version <=3.11.8 to ensure package compatibility.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To use any of the labs in this repository, you will first need to get an Azure OpenAI endpoint for Cigna's AI Gateway. Details regarding accessing your API are in the cohort kickoff communication.
 
-### Prerequisites
+Labs 3 & 4 require a vector database. This has also been provisioned for you upon cohort kickoff. Find instructions on how to get your credentials in the cohort kickoff communication.
 
-What things you need to install the software and how to install them
+# Getting Started
 
-```
-Give examples
-```
+## Environment Variables
 
-### Installing
+### Azure OpenAI endpoint 
+The AI COE has multiple models available via AI Studio. For all available models, please visit the "Available Models" section [here](https://confluence.sys.cigna.com/display/ACE/Quick+Start+-+How+to+Start+Experimenting+with+AI+Models). For this course, we recommend using GPT4 32k:
 
-A step by step series of examples that tell you how to get a development env running
+                OPENAI_API_TYPE = "azure"
+                OPENAI_API_BASE = "https://aigateway-prod.apps-1.gp-1-prod.openshift.cignacloud.com/api/v1/ai/GenAIExplorationLab/OAI"
+                OPENAI_PROD_API_KEY = "<Retrieved from AI Studio>"
+                OPENAI_API_VERSION = "2023-05-15"
+                OPENAI_API_COMPLETIONS_MODEL = "ai-coe-gpt4-32k"
+                OPENAI_API_EMBEDDINGS_DEPLOYMENT = "ai-coe-embeddings"
 
-Say what the step will be
+### Postgres endpoint
+This course uses the pgvector extension of postgres hosted on Unity to serve as a vector database in Lab 3 and 4. At the start of the course, you should have recieved an automated webex message from HIHBot providing the necessary credentials for your personal database schema. Please put those in the .env file accordingly:
 
-```
-Give the example
-```
+                PG_DB_USERNAME = "<provided by HIHBot>"
+                PG_DB_PASSWORD = "<provided by HIHBot>"
+                PG_DB_HOST = "<provided by HIHBot>"
+                PG_DB_NAME = "<provided by HIHBot>"
+                PG_DB_PORT = "<Provided by HIHBot>"
+                PG_DB_SCHEMA = "<provided by HIHBot>"
 
-And repeat
+If you did not recieve your credentials or believe there is an error, please reach out to the course administrators.
 
-```
-until finished
-```
+In *.env.sample*, paste in your environment variables from AI Studio. 
 
-End with an example of getting some data out of the system or using it for a little demo
+**Rename the ```env.sample``` file to ```.env```**
 
-## Running the tests
+NOTE: Postgres credentials are only needed for labs involving RAG (lab 3 & 4).
 
-Explain how to run the automated tests for this system
+### Virtual Environment Setup
 
-### Break down into end to end tests
+In the repository root directory (`ai-quickstart`), create a Python virtual environment:
 
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+```sh
+python -m venv .venv
 ```
 
-## Deployment
+To activate the virtual environment, run the following:
 
-Add additional notes about how to deploy this on a live system
+For Mac:
+```sh
+source .venv/bin/activate
+```
 
-## Built With
+For Windows:
+```sh
+.venv\Scripts\activate
+```
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+Once you have activated your virtual environment, you must install the required dependencies. To do so, run the following:
 
-## Contributing
+```sh
+pip install -r requirements.txt
+```
 
-Please read [CONTRIBUTING.md](.github/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+>If you run into SSL issues when calling the LLM (ex. [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate):
 
-## Code Owners
+1. Navigate to https://github.sys.cigna.com/cigna/certfix 
+2. Either follow their guide to install the cigna.pem file into your virtual environment or follow the instructions below:
+    1. In the certfix repository on github, navigate to the cigna.pem file. Copy ALL of its contents (Ctrl+C)
+    2. Go to your virtual environment directory. Navigate to ~/site-packages/certifi/cacert.pem
+    3. Append the contents from the cigna.pem file into the cacert.pem file. DO NOT DELETE OR EDIT THE EXISTING CERTS IN cacert.pem.
+    4. Save All and rerun the lab. Reach out to the course administrators if you still run into issues.
 
-Please read [CODEOWNERS](.github/CODEOWNERS) for details on the code owners of our repo
+## Labs
 
-## License
+There are 4 labs included in this repository.
 
-Describe any CIGNA license info
+1. **Basic Azure Completions**
+   
+    Learn how to call the Azure Open AI API for chat completions. Learn how to interpret the API response, and how to adjust system and user prompts to receive different response formats and constraints. 
 
-## Acknowledgments
+2. **Basic Azure Chat**
+   
+    Now that we know how to fetch chat completions and interpret the response, we increase the complexity of the bot by providing the conversation history as context when prompting for a completion. We also modularize some of the utility code to follow development best practices.
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+3. **Basic RAG Pipeline**
+
+    What if we need the LLM to answer questions on not publicly available data, and fine-tuning/training a custom model is not an option? Enter Retrieval Augmented Generation (RAG). In this module, you will learn how to implement a simple RAG pipeline for your AI applications. 
+
+4. **Full-Stack Chat Bot**
+
+    In this module, we take what we learned about building applications with LLMs and apply it to build a full-stack chatbot with React and Flask API.
+
+## HOW TO SEND LABS FOR REVIEW
+
+Once you have completed all of the labs, you should publish your repository for grading for the AI Technologist Certification. Follow the below steps to do so: 
+
+1. Create a ZIP file of your 4 LAB_*_QUESTIONS.json files using the following naming convention: "AI-Technologist-< lanid >.zip" (i.e. AI-Technologist-H68614) 
+2. Email your zip file to AITechnologistCertification@evernorth.com and request lab grading.
+3. (OPTIONAL) If there are any discrepencies in your Lab answers, we may ask to see your full repository. You may publish your repository and include the link in the above email, otherwise we will reach out.
+
+## ENSURE YOU DO NOT ACCIDENTALLY UPLOAD ANY ENVIRONMENT VARIABLES OR SENSITIVE INFORMATION.
+

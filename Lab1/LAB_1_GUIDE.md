@@ -12,11 +12,11 @@ Ensure you have properly set up your environment to complete Lab 1. Refer back t
         Lab1/
         ├──basic_azure_completions.py
         ├──LAB_1_GUIDE.md (You are here)
-        ├──LAB_1_QUESTIONS.json
+        ├──LAB_1_QUESTIONS.md
 
 >1. `basic_azure_completions.py` is where you will build the script.
 >2. `LAB_1_GUIDE.md` This is what you are currently looking at.
->3. `LAB_1_QUESTIONS.json` This is where you should type your responses to the lab questions.
+>3. `LAB_1_QUESTIONS.md` This is where you should type your responses to the lab questions.
 
 ### Code Explanation
 
@@ -35,7 +35,7 @@ We need to load in some of the environment variables to initialize the Azure Ope
         api_key = os.environ.get("OPENAI_PROD_API_KEY")
 ```
 
-**Answer question 1 in ```LAB_1_QUESTIONS.json```**
+**Answer question 1 in ```LAB_1_QUESTIONS.md```**
 
 #### On lines 20 and 21, set the ***user_prompt*** and ***system_prompt*** variables to the following:
 ```system_prompt="You are a helpful assistant."```
@@ -59,17 +59,17 @@ The second parameter you must pass is the ```messages``` object (line 27). The `
 
 Your script is complete! From the root folder (ai-quickstart), run ```python -m Lab1.basic_azure_completions```. Ensure you are in your python virtual environment with the required dependencies installed (see README.md).
 
-**Answer questions 2 & 3 in ```LAB_1_QUESTIONS.json```**
+**Answer questions 2 & 3 in ```LAB_1_QUESTIONS.md```**
 
 Note the different fields included in the response, including chat id, a list of choice objects, usage statistics and more. The response to the prompt is stored within each choice object in the ```result.choices``` list. The choices list in your responses is likely only 1 in length.
 
-**Answer question 4 in ```LAB_1_QUESTIONS.json```**
+**Answer question 4 in ```LAB_1_QUESTIONS.md```**
 
 Adjust the system role prompt to ```"You are a helpful Meteorology assistant. Only answer questions about Meteorology."``` Rerun the script with a user prompt that has nothing to do with meteorology. Notice the bot's response. 
 
-Now, change the system role prompt to ```"You are a helpful assistant designed to respond in JSON format."```. Set the user prompt to ```Give me a list of countries and cities in those countries.``` Run the code and look at the response message.
+Now, change the system role prompt to ```"You are a helpful assistant designed to respond in md format."```. Set the user prompt to ```Give me a list of countries and cities in those countries.``` Run the code and look at the response message.
 
-**Answer question 5 in ```LAB_1_QUESTIONS.json```**
+**Answer question 5 in ```LAB_1_QUESTIONS.md```**
 
 Congratulations! You have completed Lab 1 of the AI Technologist Course. Return to the course content in myUniversity to continue.
 

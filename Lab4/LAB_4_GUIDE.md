@@ -47,16 +47,16 @@ There are also many different web frameworks we can use for our frontend to inte
         |   |  ├──App.js
         |   |  ├──index.css
         |   |  ├──index.js
-        |   ├──package.json
-        |   ├──package-lock.json
+        |   ├──package.md
+        |   ├──package-lock.md
 
 #### 1. `node_modules/` folder stores all dependencies (packages and libraries) your application requires to run. This is automatically managed by npm.
 #### 2. `public/` typically stores common image resources and icons that your application may use.
 #### 3. `src/scenes/chatbot.jsx` holds the actual chatbot component and API calls to our backend.
 #### 4. `src/App.js` is the central component of our application. It serves as the entry point to the UI. We import and load the chatbot component here.
 #### 5. `src/index.js` is responsible for rendering the central component (App.js) into the DOM.
-#### 6. `package.json` contains information on dependencies, scripts, configurations, and other metadata for our application.
-#### 7. `package-lock.json` is automatically generated based on `package.json` whenever you modify your application dependencies (`npm install` or `npm update` a package).
+#### 6. `package.md` contains information on dependencies, scripts, configurations, and other metadata for our application.
+#### 7. `package-lock.md` is automatically generated based on `package.md` whenever you modify your application dependencies (`npm install` or `npm update` a package).
 
         
 ## Running the Application
@@ -87,7 +87,7 @@ C:\path\to\chatbot-ui> npm config set registry http://repo.sys.cigna.com/artifac
 
 You now have a full-stack RAG AI chatbot running on your local machine! However, there is a large security risk in the application...
 
-**Answer questions 1-2 in ```LAB_4_QUESTIONS.json```.**
+**Answer questions 1-2 in ```LAB_4_QUESTIONS.md```.**
 
 Congratulations! You have completed Lab 4 of the AI Technologist Course. Follow the instructions in ai-quickstart/README.md to publish your labs to GitHub for review. Return to the content in myUniversity to continue the course.
 

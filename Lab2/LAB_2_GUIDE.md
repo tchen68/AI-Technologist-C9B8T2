@@ -12,11 +12,11 @@ Ensure you have properly set up your environment to complete Lab 2. Refer back t
         Lab2/
         ├──basic_azure_chat.py
         ├──LAB_2_GUIDE.md (You are here)
-        ├──LAB_2_QUESTIONS.json
+        ├──LAB_2_QUESTIONS.md
 
 >1. `basic_azure_chat.py` is the template in which you will write the script.
 >2. `LAB_2_GUIDE.md` This is what you are currently looking at.
->3. `LAB_2_QUESTIONS.json` This is where you should type your responses to the lab questions.
+>3. `LAB_2_QUESTIONS.md` This is where you should type your responses to the lab questions.
 
 ### Code Explanation
 
@@ -62,13 +62,13 @@ Now, we must build a loop that takes in a user's prompt, appends it to the ```co
 
 Congratulations! Your script is complete. From the root folder (ai-quickstart), run ```python -m Lab2.basic_azure_chat```. Ensure you are in your python virtual environment with the required dependencies installed (see README.md).
 
-**Answer questions 1-2 in ```LAB_2_QUESTIONS.json```**
+**Answer questions 1-2 in ```LAB_2_QUESTIONS.md```**
 
 Ask the script to return a list of countries and their cities. 
 
-At this point, the script should have immediately re-prompted you. Ask the script to turn its last response into a JSON string.
+At this point, the script should have immediately re-prompted you. Ask the script to turn its last response into a md string.
 
-**Answer question 3 in ```LAB_2_QUESTIONS.json```**
+**Answer question 3 in ```LAB_2_QUESTIONS.md```**
 
 Ask the bot to write a 5000 word essay about the sky. Pay close attention to what the output says. 
 
@@ -87,7 +87,7 @@ ex.
 
 Again, ask the bot to generate a 100 word essay about the sky.
 
-**Answer question 4 in ```LAB_2_QUESTIONS.json```**
+**Answer question 4 in ```LAB_2_QUESTIONS.md```**
 
 Remove the max token parameter, and instead, replace it with the ```temperature``` parameter. Temperature is a scalar (0 to 1) that allows us to control the 'randomness' of the LLM. A lower temperature results in more predictable and consistent responses, while a higher temperature value results in more diverse and creative responses.
 
@@ -104,7 +104,7 @@ First, set the temperature to 0 and ask the LLM to list 3 creative uses for a pa
 
 Then set the temperature to 1 and ask the LLM the same question.
 
-**Answer question 5 in ```LAB_2_QUESTIONS.json```**
+**Answer question 5 in ```LAB_2_QUESTIONS.md```**
 
 Congratulations! You have completed Lab 2 of the AI Technologist Course. Return to the course content in myUniversity to continue.
 
