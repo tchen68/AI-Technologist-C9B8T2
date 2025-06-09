@@ -6,7 +6,7 @@
 
 In the last lab, we saw how to generate a response by the LLM for a given user and system prompt, and what happens to the LLM's behavior when we adjust those prompts. In this lab, we will take it one step further and create a bot that maintains conversation history with the user to provide more relevant responses.
 
-Ensure you have properly set up your environment to complete Lab 2. Refer back to `ai-quickstart/README.md` if you need to.
+Ensure you have properly set up your environment to complete Lab 2. Refer back to `AITechnologistLabs/README.md` if you need to.
 
 #### First, let's look at the files included in this lab.
         Lab2/
@@ -60,7 +60,7 @@ Now, we must build a loop that takes in a user's prompt, appends it to the ```co
             print("No response from the assistant.")
 ``` 
 
-Congratulations! Your script is complete. From the root folder (ai-quickstart), run ```python -m Lab2.basic_azure_chat```. Ensure you are in your python virtual environment with the required dependencies installed (see README.md).
+Congratulations! Your script is complete. From the root folder (AITechnologistLabs), run ```python -m Lab2.basic_azure_chat```. Ensure you are in your python virtual environment with the required dependencies installed (see README.md).
 
 **Answer questions 1-2 in ```LAB_2_QUESTIONS.md```**
 
