@@ -41,3 +41,7 @@
 #MacOS
 #.DS_Store
 #.Trashes
+
+#Environment vars and venv
+.env
+.venv/

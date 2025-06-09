@@ -86,19 +86,16 @@ In order to use the vector db, we first must initialize it with our vectordb uti
 
 The first call initializes our postgres agent with a connection. `init_db()` then creates a table to store our vectors in the given schema. Embedding dimensions are set to 1536 for this lab. 
 
-Take a look at the ```save_embeddings_in_postgres()``` function in ```utils/vectordb.py```. This function simply takes in the list of dictionaries we created containing the text and embeddings, the name of the vector table, the column name to use for the text chunks, and the column name to use for the embeddings. All of these values default to the standard table and column names we just initialized in ```init_db()```.
+Take a look at the ```save_embeddings_in_postgres()``` function in ```utils/vectordb.py```. This function simply takes in the list of dictionaries we created containing the text and embeddings. All of these values default to the standard table and column names we just initialized in ```init_db()```.
 
 Save your recently created embeddings by running the following:
 ```python
-    db.save_embeddings_in_postgres(text_and_embeds=text_and_embeddings, 
-                                    table_name="text_chunks", 
-                                    text_field='text_content', 
-                                    vector_field='embedding')
+    db.save_embeddings_in_postgres(text_and_embeds=text_and_embeddings)
 ```
 
 Run ```python -m Lab3.basic_vectorization``` from the root folder (AITechnologistLabs). 
 
-At this point, your embeddings should be saved in the database. Feel free to check your schema by running a SQL query on the db or connecting to it via any RDMS that accepts Postgres connections.
+At this point, your embeddings should be saved in the database. Feel free to check your schema by running a SQL query on the db or connecting to it via any RDMS that accepts Postgres connections. Note that you will need to decrypt the base64 password from your .env file to connect via a DBMS.
 
 ### 3. Retrieval
 
@@ -127,15 +124,11 @@ Then, we must retrieve the user's input:
         user_input = input("Question: ") 
 ```
 
-In order to calculate the similarity search against the embeddings we stored in Postgres, we need to generate embeddings for the user's prompt. We then call ```get_embedding_from_postgres()```. This function takes the user prompt embedding and relevant Postgres details to use for the query, runs the Euclidean distance formula on the given vector field, and returns the text associated with the retrieved embedding:
+In order to calculate the similarity search against the embeddings we stored in Postgres, we need to generate embeddings for the user's prompt. We then call ```get_embedding_from_postgres()```. This function takes the user prompt embedding to use for the query, runs the Euclidean distance formula on the given vector field, and returns the text associated with the retrieved embedding:
 
 ```python
         user_prompt_embedding = util.basic_embedding_generator(user_input)
-        context = db.get_embedding_from_postgres(
-            user_prompt_embedding,                 
-            table_name="text_chunks", 
-            text_field='text_content',
-            vector_field='embedding')
+        context = db.get_embedding_from_postgres(user_prompt_embedding)
 ```
 
 ### 4. Generation
