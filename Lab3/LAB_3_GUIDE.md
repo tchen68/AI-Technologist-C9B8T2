@@ -6,7 +6,7 @@
 
 In the last lab, we gave the LLM more context by providing the entire conversation history to the bot. But what happens if we want the bot to generate based on proprietary data that the model does not have access to? This is a good opportunity to leverage Retrieval Augmented Generation (RAG).
 
-Ensure you have properly set up your environment to complete Lab 3. Refer back to `ai-quickstart/README.md` if you need to.
+Ensure you have properly set up your environment to complete Lab 3. Refer back to `AITechnologistLabs/README.md` if you need to.
 
 #### First, let's look at the files included in this lab.
         Lab3/
@@ -70,13 +70,13 @@ Now that we have a list of text chunks, we want to enumerate these chunks and sa
         text_and_embeddings.append({"text": text, "embedding": embedding})
 ```
 
-Run ```python -m Lab3.basic_vectorization``` from the root folder (ai-quickstart). Print the text_and_embeddings object and observe it.
+Run ```python -m Lab3.basic_vectorization``` from the root folder (AITechnologistLabs). Print the text_and_embeddings object and observe it.
 
 **Answer question 1 in ```LAB_3_QUESTIONS.md```.**
 
 ### 2. Storing the Vectors
 
-In order to store the embedding for future retrieval, we need a vector database. For this course, we are using the pgvector extension provided by Postgres. Ensure your Postgres credentials are in the .env file. Refer back to `ai-quickstart/README.md` if needed.
+In order to store the embedding for future retrieval, we need a vector database. For this course, we are using the pgvector extension provided by Postgres. Ensure your Postgres credentials are in the .env file. Refer back to `AITechnologistLabs/README.md` if needed.
 
 In order to use the vector db, we first must initialize it with our vectordb utility class:
 ```python
@@ -96,7 +96,7 @@ Save your recently created embeddings by running the following:
                                     vector_field='embedding')
 ```
 
-Run ```python -m Lab3.basic_vectorization``` from the root folder (ai-quickstart). 
+Run ```python -m Lab3.basic_vectorization``` from the root folder (AITechnologistLabs). 
 
 At this point, your embeddings should be saved in the database. Feel free to check your schema by running a SQL query on the db or connecting to it via any RDMS that accepts Postgres connections.
 
@@ -165,7 +165,7 @@ Our conversation with context object is now ready to send to the LLM. Call the b
         conversation.append(llm_message)
 ```
 
-Run ```python -m Lab3.basic_azure_RAG``` from the root directory (ai-quickstart). Ask the bot what your favorite food is.
+Run ```python -m Lab3.basic_azure_RAG``` from the root directory (AITechnologistLabs). Ask the bot what your favorite food is.
 
 ***Answer Question 2-4 in LAB_3_QUESTIONS.md***
 
