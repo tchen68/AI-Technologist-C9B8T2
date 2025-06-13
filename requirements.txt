@@ -7,3 +7,4 @@ flask-cors
 SQLAlchemy
 pgvector
 pg8000
+requests

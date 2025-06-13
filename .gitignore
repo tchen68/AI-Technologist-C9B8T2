@@ -45,3 +45,6 @@
 #Environment vars and venv
 .env
 .venv/
+node_modules/
+Lab4/backend/chatbot.env
+__pycache__/
