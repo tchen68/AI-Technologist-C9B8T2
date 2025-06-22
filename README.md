@@ -4,7 +4,7 @@
 ---
 
 ## Prerequisites
-You should have a python development environment set up (i.e. an installation of python and an IDE of your choice). We recommend python version <=3.11.8 to ensure package compatibility.
+You should have a python development environment set up (i.e. an installation of python and an IDE of your choice). The labs have been tested through python version <=3.13 to ensure package compatibility.
 
 To use any of the labs in this repository, you will first need to get an Azure OpenAI endpoint for Cigna's AI Gateway. Details regarding accessing your API are in the cohort kickoff communication.
 
@@ -20,8 +20,8 @@ The AI COE has multiple models available via AI Studio. For all available models
                 OPENAI_API_TYPE = "azure"
                 OPENAI_API_BASE = "https://aigateway-prod.apps-1.gp-1-prod.openshift.cignacloud.com/api/v1/ai/GenAIExplorationLab/OAI"
                 OPENAI_PROD_API_KEY = "<Retrieved from AI Studio>"
-                OPENAI_API_VERSION = "2023-05-15"
-                OPENAI_API_COMPLETIONS_MODEL = "ai-coe-gpt4-32k"
+                OPENAI_API_VERSION = "2024-02-01"
+                OPENAI_API_COMPLETIONS_MODEL = "ai-coe-gpt4o"
                 OPENAI_API_EMBEDDINGS_DEPLOYMENT = "ai-coe-embeddings"
 
 ### Postgres endpoint
@@ -44,7 +44,7 @@ NOTE: Postgres credentials are only needed for labs involving RAG (lab 3 & 4).
 
 ### Virtual Environment Setup
 
-In the repository root directory (`ai-quickstart`), create a Python virtual environment:
+In the repository root directory (`AITechnologistLabs`), create a Python virtual environment:
 
 ```sh
 python -m venv .venv
@@ -73,7 +73,7 @@ pip install -r requirements.txt
 1. Navigate to https://github.sys.cigna.com/cigna/certfix 
 2. Either follow their guide to install the cigna.pem file into your virtual environment or follow the instructions below:
     1. In the certfix repository on github, navigate to the cigna.pem file. Copy ALL of its contents (Ctrl+C)
-    2. Go to your virtual environment directory. Navigate to ~/site-packages/certifi/cacert.pem
+    2. Go to your virtual environment directory. Navigate to ~/site-packages/certifi/cacert.pem on Windows or ~/lib/python3.X/site-packages/certifi/cacert.pem on Mac
     3. Append the contents from the cigna.pem file into the cacert.pem file. DO NOT DELETE OR EDIT THE EXISTING CERTS IN cacert.pem.
     4. Save All and rerun the lab. Reach out to the course administrators if you still run into issues.
 
@@ -99,11 +99,7 @@ There are 4 labs included in this repository.
 
 ## HOW TO SEND LABS FOR REVIEW
 
-Once you have completed all of the labs, you should publish your repository for grading for the AI Technologist Certification. Follow the below steps to do so: 
-
-1. Create a ZIP file of your 4 LAB_*_QUESTIONS.json files using the following naming convention: "AI-Technologist-< lanid >.zip" (i.e. AI-Technologist-H68614) 
-2. Email your zip file to AITechnologistCertification@evernorth.com and request lab grading.
-3. (OPTIONAL) If there are any discrepencies in your Lab answers, we may ask to see your full repository. You may publish your repository and include the link in the above email, otherwise we will reach out.
+Details on submitting your labs for certification grading will be shared by the administrators at a later point in the cohort. If you finish before this is communicated, please reach out to AITechnologistCertification@evernorth.com
 
 ## ENSURE YOU DO NOT ACCIDENTALLY UPLOAD ANY ENVIRONMENT VARIABLES OR SENSITIVE INFORMATION.
 

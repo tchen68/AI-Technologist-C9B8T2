@@ -47,4 +47,5 @@
 .venv/
 node_modules/
 Lab4/backend/chatbot.env
+chatbot.env
 __pycache__/
