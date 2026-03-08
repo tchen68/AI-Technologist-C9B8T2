@@ -2,9 +2,9 @@
 
 # Lab 1 Overview
 
-### Basic Azure Completions
+### Basic Chat Completions
 
-In this lab, you will learn how to create simple chat completions using Azure OpenAI.
+In this lab, you will learn how to create simple chat completions using the OpenAI SDK with the LiteLLM Gateway.
 
 Ensure you have properly set up your environment to complete Lab 1. Refer back to `AITechnologistLabs/README.md` if you need to.
 
@@ -26,13 +26,12 @@ First, we import the following libraries:
 
 >1. ```from dotenv import load_dotenv```: Allows us to load our environment variables from the .env file
 >2. ```import os```: Allows us to access the environment variables
->3. ```from openai import AzureOpenAI```: Allows us to call our Azure OpenAI endpoint.
+>3. ```from openai import OpenAI```: Allows us to call OpenAI models via SDK.
 
-We need to load in some of the environment variables to initialize the Azure OpenAI client. Using ```os.environ.get(" <name of environment variable> ")```, load the following variables into the client (lines 11-13):
+We need to load in some of the environment variables to initialize the OpenAI client. Using ```os.environ.get(" <name of environment variable> ")```, load the following variables into the client (lines 11-12):
 ```python
-        azure_endpoint = os.environ.get("OPENAI_API_BASE"),
-        api_version = os.environ.get("OPENAI_API_VERSION"),
-        api_key = os.environ.get("OPENAI_PROD_API_KEY")
+        api_key = os.environ.get("AI_GW_API_KEY"),
+        base_url = os.environ.get("AI_GW_BASE_URL"),
 ```
 
 **Answer question 1 in ```LAB_1_QUESTIONS.md```**
@@ -42,10 +41,10 @@ We need to load in some of the environment variables to initialize the Azure Ope
 
 ```user_prompt="What is typically included in a healthcare claim?"```
 
-To retrieve a response from the LLM, we must use the ```client``` to call ```chat.completions.create()``` (line 25). To call ```chat.completions.create()```, you must pass in two parameters. The first parameter is the large language model you intend to use through the API, and is simply called ```model```. Pass in the model name from your environment variables file using the same method we used for the client (line 26). 
+To retrieve a response from the LLM, we must use the ```client``` to call ```chat.completions.create()``` (line 24). To call ```chat.completions.create()```, you must pass in two parameters. The first parameter is the large language model you intend to use through the API, and is simply called ```model```. Pass in the model name from your environment variables file using the same method we used for the client (line 25). 
 
 ```python
-        model = os.environ.get("OPENAI_API_COMPLETIONS_MODEL"),
+        model = os.environ.get("COMPLETIONS_MODEL"),
 ```
 
 The second parameter you must pass is the ```messages``` object (line 27). The ```messages``` object is a list of dictionaries. Each dictionary represents a message communicated to the LLM, with a "role" and a "content" field. For this lab, we will simply put two dictionaries in the messages list- one for the system role, and one for the actual user prompt. We will pass in the content using the ```system_role``` and ```user_prompt``` variables that we set earlier:

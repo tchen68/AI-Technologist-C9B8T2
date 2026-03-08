@@ -1,6 +1,6 @@
 *** Question 1 ***
 
-List all parameters required to instantiate the Azure OpenAI client.
+List all parameters required to instantiate the OpenAI client.
 
 *** Answer ***
 

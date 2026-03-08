@@ -14,15 +14,13 @@ Labs 3 & 4 require a vector database. This has also been provisioned for you upo
 
 ## Environment Variables
 
-### Azure OpenAI endpoint 
-The AI COE has multiple models available via AI Studio. For all available models, please visit the "Available Models" section [here](https://confluence.sys.cigna.com/display/ACE/Quick+Start+-+How+to+Start+Experimenting+with+AI+Models). For this course, we recommend using GPT4 32k:
+### LiteLLM Gateway endpoint 
+The AI COE provides access to LLM models via the LiteLLM Gateway. For exploration lab support and documentation, click [here](https://iris.thecignagroup.com/home/ls/content/6182343247640281/from-hours-to-seconds-exploration-lab-user-access). For this course, we recommend using gpt-5:
 
-                OPENAI_API_TYPE = "azure"
-                OPENAI_API_BASE = "https://aigateway-prod.apps-1.gp-1-prod.openshift.cignacloud.com/api/v1/ai/GenAIExplorationLab/OAI"
-                OPENAI_PROD_API_KEY = "<Retrieved from AI Studio>"
-                OPENAI_API_VERSION = "2024-02-01"
-                OPENAI_API_COMPLETIONS_MODEL = "ai-coe-gpt4o"
-                OPENAI_API_EMBEDDINGS_DEPLOYMENT = "ai-coe-embeddings"
+                AI_GW_BASE_URL = "https://litellm.ai-coe-test.aws.evernorthcloud.com/v1"
+                AI_GW_API_KEY = "<Retrieved from AI COE>"
+                COMPLETIONS_MODEL = "gpt-5"
+                EMBEDDINGS_MODEL = "ai-coe-embeddings"
 
 ### Postgres endpoint
 This course uses the pgvector extension of postgres hosted on Unity to serve as a vector database in Lab 3 and 4. At the start of the course, you should have recieved an automated webex message from HIHBot providing the necessary credentials for your personal database schema. Please put those in the .env file accordingly:
@@ -38,7 +36,7 @@ If you did not recieve your credentials or believe there is an error, please rea
 
 In *.env.sample*, paste in your environment variables from AI Studio. 
 
-**Rename the ```env.sample``` file to ```.env```**
+**Rename the ```sample.env``` file to ```.env```**
 
 NOTE: Postgres credentials are only needed for labs involving RAG (lab 3 & 4).
 
@@ -68,15 +66,6 @@ Once you have activated your virtual environment, you must install the required 
 pip install -r requirements.txt
 ```
 
->If you run into SSL issues when calling the LLM (ex. [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate):
-
-1. Navigate to https://github.sys.cigna.com/cigna/certfix 
-2. Either follow their guide to install the cigna.pem file into your virtual environment or follow the instructions below:
-    1. In the certfix repository on github, navigate to the cigna.pem file. Copy ALL of its contents (Ctrl+C)
-    2. Go to your virtual environment directory. Navigate to ~/site-packages/certifi/cacert.pem on Windows or ~/lib/python3.X/site-packages/certifi/cacert.pem on Mac
-    3. Append the contents from the cigna.pem file into the cacert.pem file. DO NOT DELETE OR EDIT THE EXISTING CERTS IN cacert.pem.
-    4. Save All and rerun the lab. Reach out to the course administrators if you still run into issues.
-
 ## Labs
 
 There are 4 labs included in this repository.
@@ -102,4 +91,21 @@ There are 4 labs included in this repository.
 Details on submitting your labs for certification grading will be shared by the administrators at a later point in the cohort. If you finish before this is communicated, please reach out to AITechnologistCertification@evernorth.com
 
 ## ENSURE YOU DO NOT ACCIDENTALLY UPLOAD ANY ENVIRONMENT VARIABLES OR SENSITIVE INFORMATION.
+
+---
+
+## Appendix: Historical Issues
+
+### SSL Certificate Issues (Legacy Azure OpenAI Gateway)
+
+> **Note:** This section is only relevant if you are using the legacy Azure OpenAI Gateway endpoint (not the LiteLLM Gateway). The LiteLLM Gateway should not require these steps.
+
+If you run into SSL issues when calling the LLM (ex. [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate):
+
+1. Navigate to https://github.sys.cigna.com/cigna/certfix 
+2. Either follow their guide to install the cigna.pem file into your virtual environment or follow the instructions below:
+    1. In the certfix repository on github, navigate to the cigna.pem file. Copy ALL of its contents (Ctrl+C)
+    2. Go to your virtual environment directory. Navigate to ~/site-packages/certifi/cacert.pem on Windows or ~/lib/python3.X/site-packages/certifi/cacert.pem on Mac
+    3. Append the contents from the cigna.pem file into the cacert.pem file. DO NOT DELETE OR EDIT THE EXISTING CERTS IN cacert.pem.
+    4. Save All and rerun the lab. Reach out to the course administrators if you still run into issues.
 
