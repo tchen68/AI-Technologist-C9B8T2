@@ -10,17 +10,17 @@ Ensure you have properly set up your environment to complete Lab 1. Refer back t
 
 #### First, let's look at the files included in this lab.
         Lab1/
-        ├──basic_azure_completions.py
+        ├──basic_completions.py
         ├──LAB_1_GUIDE.md (You are here)
         ├──LAB_1_QUESTIONS.md
 
->1. `basic_azure_completions.py` is where you will build the script.
+>1. `basic_completions.py` is where you will build the script.
 >2. `LAB_1_GUIDE.md` This is what you are currently looking at.
 >3. `LAB_1_QUESTIONS.md` This is where you should type your responses to the lab questions.
 
 ### Code Explanation
 
-In the `basic_azure_completions.py` file, we are simply providing the LLM a user prompt and system prompt to receive a response. 
+In the `basic_completions.py` file, we are simply providing the LLM a user prompt and system prompt to receive a response. 
 
 First, we import the following libraries:
 
@@ -56,7 +56,7 @@ The second parameter you must pass is the ```messages``` object (line 27). The `
         ]
 ```
 
-Your script is complete! From the root folder (AITechnologistLabs), run ```python -m Lab1.basic_azure_completions```. Ensure you are in your python virtual environment with the required dependencies installed (see README.md).
+Your script is complete! From the root folder (AITechnologistLabs), run ```python -m Lab1.basic_completions```. Ensure you are in your python virtual environment with the required dependencies installed (see README.md).
 
 **Answer questions 2 & 3 in ```LAB_1_QUESTIONS.md```**
 

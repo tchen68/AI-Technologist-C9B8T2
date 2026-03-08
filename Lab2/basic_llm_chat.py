@@ -1,16 +1,15 @@
 import os
-from openai import AzureOpenAI
+from openai import OpenAI
 from dotenv import load_dotenv
 
 #Load the .env file
 load_dotenv()
 
-#initialize the AzureOpenAI Client
+#initialize the OpenAI Client
 try:
-  client = AzureOpenAI(
-    azure_endpoint = ,
-    api_version = ,
-    api_key = 
+  client = OpenAI(
+    api_key = os.environ.get("AI_GW_API_KEY"),
+    base_url = os.environ.get("AI_GW_BASE_URL"),
   )
   print("OpenAI client initialized succesfully.")
 except Exception as e:
@@ -20,11 +19,9 @@ except Exception as e:
 def basic_chat_completion(conversation:list=None):
     try:
         response = client.chat.completions.create(
-            model = os.environ.get("OPENAI_API_COMPLETIONS_MODEL"),
+            model = os.environ.get("COMPLETIONS_MODEL"),
             messages=conversation,
-                )
-        if response.statusCode == 400:
-            raise Exception("Bad request. Please check your input.")
+        )
         return response
     except Exception as e:
       print("Error during chat completion:", e)

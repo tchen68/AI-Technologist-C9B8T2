@@ -10,25 +10,25 @@ Ensure you have properly set up your environment to complete Lab 2. Refer back t
 
 #### First, let's look at the files included in this lab.
         Lab2/
-        ├──basic_azure_chat.py
+        ├──basic_llm_chat.py
         ├──LAB_2_GUIDE.md (You are here)
         ├──LAB_2_QUESTIONS.md
 
->1. `basic_azure_chat.py` is the template in which you will write the script.
+>1. `basic_llm_chat.py` is the template in which you will write the script.
 >2. `LAB_2_GUIDE.md` This is what you are currently looking at.
 >3. `LAB_2_QUESTIONS.md` This is where you should type your responses to the lab questions.
 
 ### Code Explanation
 
-In the `basic_azure_chat.py` file, we are simply providing the conversation history to the LLM instead of just the system role and one user prompt in lab 1. The conversation history is just the messages object discussed in the previous lab, however we append the user prompt and LLM response to the messages list as they are received. As a result, the LLM is able to use the conversation history as context to the new prompt and even call back to previous prompts or responses.
+In the `basic_llm_chat.py` file, we are simply providing the conversation history to the LLM instead of just the system role and one user prompt in lab 1. The conversation history is just the messages object discussed in the previous lab, however we append the user prompt and LLM response to the messages list as they are received. As a result, the LLM is able to use the conversation history as context to the new prompt and even call back to previous prompts or responses.
 
 First, we import the following libraries:
 
 >1. ```from dotenv import load_dotenv```: Allows us to load our environment variables from the .env file
 >2. ```import os```: Allows us to access the environment variables
->3. ```from openai import AzureOpenAI```: Allows us to call our Azure OpenAI endpoint.
+>3. ```from openai import OpenAI```: Allows us to call the LiteLLM Gateway using the OpenAI SDK.
 
-We need to load in some of the environment variables to initialize the Azure OpenAI client. Load in the API base, version, and key as we did in lab 1 (lines 11-13).
+We need to load in some of the environment variables to initialize the OpenAI client. Load in the API key and base URL as we did in lab 1 (lines 11-12).
 
 The ```basic_chat_completion()``` function (20-31) is the same as the script you built in lab 1, however we have built it into a function with ```conversation``` as an input. 
 
@@ -47,7 +47,7 @@ Now, we must build a loop that takes in a user's prompt, appends it to the ```co
 2.  Once we have received a prompt, we must call the ```basic_chat_completions``` function, passing in ```conversation``` as a parameter. Save this to the "response" variable.
 
 ```python
-        response = basic_chat_completions(conversation)
+        response = basic_chat_completion(conversation)
 ```
 
 3. If a response is returned, we must append it to the conversation history using the "assistant" role and output it to the user:
@@ -60,7 +60,7 @@ Now, we must build a loop that takes in a user's prompt, appends it to the ```co
             print("No response from the assistant.")
 ``` 
 
-Congratulations! Your script is complete. From the root folder (AITechnologistLabs), run ```python -m Lab2.basic_azure_chat```. Ensure you are in your python virtual environment with the required dependencies installed (see README.md).
+Congratulations! Your script is complete. From the root folder (AITechnologistLabs), run ```python -m Lab2.basic_llm_chat```. Ensure you are in your python virtual environment with the required dependencies installed (see README.md).
 
 **Answer questions 1-2 in ```LAB_2_QUESTIONS.md```**
 
@@ -79,7 +79,7 @@ In ```client.chat.completions.create()```, add the 'max_tokens' parameter and se
 ex.
 ```python    
     response = client.chat.completions.create(
-        model = os.environ.get("OPENAI_API_COMPLETIONS_MODEL"),
+        model = os.environ.get("COMPLETIONS_MODEL"),
         messages=conversation,
         max_tokens=50
 )
@@ -94,7 +94,7 @@ Remove the max token parameter, and instead, replace it with the ```temperature`
 ex.
 ```python    
     response = client.chat.completions.create(
-        model = os.environ.get("OPENAI_API_COMPLETIONS_MODEL"),
+        model = os.environ.get("COMPLETIONS_MODEL"),
         messages=conversation,
         temperature=0
 )

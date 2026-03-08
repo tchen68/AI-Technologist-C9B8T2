@@ -70,11 +70,11 @@ pip install -r requirements.txt
 
 There are 4 labs included in this repository.
 
-1. **Basic Azure Completions**
+1. **Basic Completions**
    
-    Learn how to call the Azure Open AI API for chat completions. Learn how to interpret the API response, and how to adjust system and user prompts to receive different response formats and constraints. 
+    Learn how to call the LLM via the LiteLLM Gateway for chat completions. Learn how to interpret the API response, and how to adjust system and user prompts to receive different response formats and constraints. 
 
-2. **Basic Azure Chat**
+2. **Basic LLM Chat**
    
     Now that we know how to fetch chat completions and interpret the response, we increase the complexity of the bot by providing the conversation history as context when prompting for a completion. We also modularize some of the utility code to follow development best practices.
 
