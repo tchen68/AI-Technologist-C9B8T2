@@ -16,7 +16,7 @@ What are the reasons for implementing a RAG model into your application? Give an
 
 *** Question 3 ***
 
-Explain the steps we used to implement context retrieval into our simple chatbot (basic_azure_RAG.py).
+Explain the steps we used to implement context retrieval into our simple chatbot (basic_RAG.py).
 
 *** Answer ***
 

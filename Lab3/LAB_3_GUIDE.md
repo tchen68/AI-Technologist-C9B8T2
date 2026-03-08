@@ -10,7 +10,7 @@ Ensure you have properly set up your environment to complete Lab 3. Refer back t
 
 #### First, let's look at the files included in this lab.
         Lab3/
-        ├──basic_azure_RAG.py
+        ├──basic_RAG.py
         ├──basic_vectorization.py
         ├──LAB_3_GUIDE.md (You are here)
         ├──LAB_3_QUESTIONS.md
@@ -19,7 +19,7 @@ Ensure you have properly set up your environment to complete Lab 3. Refer back t
             ├──utils.py
             ├──vectordb.py
 
->1. `basic_azure_RAG.py` is the template in which you will create the RAG bot.
+>1. `basic_RAG.py` is the template in which you will create the RAG bot.
 >2. `basic_vectorization.py` is where you will ingest the text data, vectorize it, and upload it to your vector database.
 >2. `LAB_3_GUIDE.md` This is what you are currently looking at.
 >3. `LAB_3_QUESTIONS.md` This is where you should type your responses to the lab questions.
@@ -56,7 +56,7 @@ Note that the content we are ingesting is very small, so this will result in onl
 
 ### 2. Vectorization
 
-Take a look at the function ```basic_embedding_generator()``` function in ```utils/utils.py```. This function takes in a chunk of text and calls ```self.azure_openai_client.embeddings.create()``` to generate an embedding of the text. In order to do this, we must pass in the embedding model (e.x. 'text-ada-2') we wish to use and the text to embed. You may notice that before calling the LLM, we call a function named ```normalize_text()```. This function simply removes white space and redundant characters in an effort to improve the retrieval of relevant embeddings. Once a response is received, we access the embedding via response.data[0].embedding.
+Take a look at the function ```basic_embedding_generator()``` function in ```utils/utils.py```. This function takes in a chunk of text and calls ```self.openai_client.embeddings.create()``` to generate an embedding of the text. In order to do this, we must pass in the embedding model (e.x. 'text-ada-2') we wish to use and the text to embed. You may notice that before calling the LLM, we call a function named ```normalize_text()```. This function simply removes white space and redundant characters in an effort to improve the retrieval of relevant embeddings. Once a response is received, we access the embedding via response.data[0].embedding.
 
 >Normalizing the text is very important when you intend to generate embeddings from data types that are not pure natural language.
 
@@ -103,7 +103,7 @@ Now that we have processed the data and stored it, we can focus on fetching rele
 
 Take a look at the ```basic_chat_completion()``` function in ```utils/utils.py.``` We covered this function in previous labs. It simply calls the chat completion model to generate a response with the conversation history as an input.
 
-The following code should go in the ```basic_azure_RAG.py``` file.
+The following code should go in the ```basic_RAG.py``` file.
 
 Initialize the utils and vectordb classes:
 ```python
@@ -158,7 +158,7 @@ Our conversation with context object is now ready to send to the LLM. Call the b
         conversation.append(llm_message)
 ```
 
-Run ```python -m Lab3.basic_azure_RAG``` from the root directory (AITechnologistLabs). Ask the bot what your favorite food is.
+Run ```python -m Lab3.basic_RAG``` from the root directory (AITechnologistLabs). Ask the bot what your favorite food is.
 
 ***Answer Question 2-4 in LAB_3_QUESTIONS.md***
 
