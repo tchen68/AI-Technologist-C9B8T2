@@ -1,7 +1,7 @@
 
 import os
 import re
-from openai import AzureOpenAI
+from openai import OpenAI
 from dotenv import load_dotenv
 from typing import List, Dict
 
@@ -18,62 +18,58 @@ def normalize_text(input_text):
 
 class Utils:
     """
-    A utility class for interacting with the Azure OpenAI client.
+    A utility class for interacting with the OpenAI client.
     Attributes:
-    - azure_openai_client (AzureOpenAI): The Azure OpenAI client instance.
+    - openai_client (OpenAI): The OpenAI client instance.
     """
     def __init__(self):
         """
         Initialized the Utils class.
-        Sets the azure_openai_client attribute to None.
+        Sets the openai_client attribute.
         """
-        self.azure_openai_client = self.init_azure_openai_client()
+        self.openai_client = self.init_openai_client()
 
-    def init_azure_openai_client(self):
+    def init_openai_client(self):
 
         """
-        Initializes the Azure OpenAI client.
+        Initializes the OpenAI client.
         
-        Retrieves the necessary environment variables and createa an instance of the AzureOpenAI client.
+        Retrieves the necessary environment variables and creates an instance of the OpenAI client.
         Returns:
-            azure_openai_client (object): This is the AzureOpenAI instance.
+            openai_client (object): This is the OpenAI instance.
         
         Raises:
             Exception: If an error occurs during client initialization.
         """
         try:
             
-            client = AzureOpenAI(
-                azure_endpoint= os.environ['OPENAI_API_BASE'],
-                api_version = os.environ["OPENAI_API_VERSION"],
-                api_key = os.environ["OPENAI_PROD_API_KEY"],
+            client = OpenAI(
+                api_key = os.environ.get("AI_GW_API_KEY"),
+                base_url = os.environ.get("AI_GW_BASE_URL"),
             )
-            print("Azure OpenAI client initialized successfully")
+            print("OpenAI client initialized successfully")
             return client
         except Exception as e:
-            raise Exception(f"Error initializing Azure OpenAI client: {e}")
+            raise Exception(f"Error initializing OpenAI client: {e}")
 
     def basic_chat_completion(self, conversation:list=None):
         """
-        Performs a basic completion with the Azure OpenAI client.
-        Sends a prompt to the client and returns the response in JSON format.
+        Performs a basic completion with the OpenAI client.
+        Sends a prompt to the client and returns the response.
         Args:
             user_prompt (str): The prompt to send to the client. It should be a non-empty string.
             system_prompt (str): The content to include in the conversation.
             conversation (list): To be used for conversation with previous context.
         Returns:
-            Optional[str]: The response from the client in JSON format, or None if an error occurs.
+            Optional[str]: The response from the client, or None if an error occurs.
         Raises:
             Exception: If an error occurs during the completion.
         """
         try:
-
-            response = self.azure_openai_client.chat.completions.create(
-                model = os.environ.get("OPENAI_API_COMPLETIONS_MODEL"),
+            response = self.openai_client.chat.completions.create(
+                model = os.environ.get("COMPLETIONS_MODEL"),
                 messages=conversation
-                    )
-            if response.statusCode == 400:
-                raise Exception("Bad request. Please check your input.")
+            )
             print(response)
             return response.choices[0].message.content
                 
@@ -82,7 +78,7 @@ class Utils:
     
     def basic_embedding_generator(self, input:str) -> List[float]:
         """
-        Generates an embedding for the given input text using the Azure OpenAI client.
+        Generates an embedding for the given input text using the OpenAI client.
         Args:
             input (str): The input text to generate an embedding for. Defaults to None.
         Returns:
@@ -98,9 +94,10 @@ class Utils:
         normalized_input = normalize_text(input)
 
         try:
-            response = self.azure_openai_client.embeddings.create(
+            response = self.openai_client.embeddings.create(
                 input=normalized_input,
-                model=os.environ.get("OPENAI_API_EMBEDDINGS_DEPLOYMENT")
+                model=os.environ.get("EMBEDDINGS_MODEL"),
+                dimensions=1536
             )
             return response.data[0].embedding
         except Exception as e:
