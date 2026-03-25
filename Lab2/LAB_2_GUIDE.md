@@ -91,10 +91,12 @@ Again, ask the bot to generate a 100 word essay about the sky.
 
 Remove the max token parameter, and instead, replace it with the ```temperature``` parameter. Temperature is a scalar (0 to 1) that allows us to control the 'randomness' of the LLM. A lower temperature results in more predictable and consistent responses, while a higher temperature value results in more diverse and creative responses.
 
+Set the model to **`gpt-4o`** in your ```client.chat.completions.create()``` call (for example, ```model="gpt-4o"```). GPT-5 family models do not support the ```temperature``` parameter, so you need a model such as ```gpt-4o``` for these steps.
+
 ex.
 ```python    
     response = client.chat.completions.create(
-        model = os.environ.get("COMPLETIONS_MODEL"),
+        model="gpt-4o",
         messages=conversation,
         temperature=0
 )
