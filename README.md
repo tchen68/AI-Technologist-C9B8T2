@@ -20,7 +20,7 @@ The AI COE provides access to LLM models via the LiteLLM Gateway. For exploratio
                 AI_GW_BASE_URL = "https://litellm.ai-coe-test.aws.evernorthcloud.com/v1"
                 AI_GW_API_KEY = "<Retrieved from AI COE>"
                 COMPLETIONS_MODEL = "gpt-5"
-                EMBEDDINGS_MODEL = "ai-coe-embeddings"
+                EMBEDDINGS_MODEL = "text-embedding-3-large"
 
 ### Postgres endpoint
 This course uses the pgvector extension of postgres hosted on Unity to serve as a vector database in Lab 3 and 4. At the start of the course, you should have recieved an automated webex message from HIHBot providing the necessary credentials for your personal database schema. Please put those in the .env file accordingly:
