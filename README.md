@@ -23,14 +23,14 @@ The AI COE provides access to LLM models via the LiteLLM Gateway. For exploratio
                 EMBEDDINGS_MODEL = "text-embedding-3-large"
 
 ### Postgres endpoint
-This course uses the pgvector extension of postgres hosted on Unity to serve as a vector database in Lab 3 and 4. At the start of the course, you should have recieved an automated webex message from HIHBot providing the necessary credentials for your personal database schema. Please put those in the .env file accordingly:
+This course uses the pgvector extension of postgres hosted on Unity to serve as a vector database in Lab 3 and 4. At the start of the course, you should have recieved an automated Teams message from AITechnologist providing the necessary credentials for your personal database schema. Please put those in the .env file accordingly:
 
-                PG_DB_USERNAME = "<provided by HIHBot>"
-                PG_DB_PASSWORD = "<provided by HIHBot>"
-                PG_DB_HOST = "<provided by HIHBot>"
-                PG_DB_NAME = "<provided by HIHBot>"
-                PG_DB_PORT = "<Provided by HIHBot>"
-                PG_DB_SCHEMA = "<provided by HIHBot>"
+                PG_DB_USERNAME = "<provided by AITechnologistBot>"
+                PG_DB_PASSWORD = "<provided by AITechnologistBot>"
+                PG_DB_HOST = "<provided by AITechnologistBot>"
+                PG_DB_NAME = "<provided by AITechnologistBot>"
+                PG_DB_PORT = "<Provided by AITechnologistBot>"
+                PG_DB_SCHEMA = "<provided by AITechnologistBot>"
 
 If you did not recieve your credentials or believe there is an error, please reach out to the course administrators.
 
