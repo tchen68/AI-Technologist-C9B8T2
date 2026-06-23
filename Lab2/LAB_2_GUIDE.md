@@ -66,7 +66,7 @@ Congratulations! Your script is complete. From the root folder (AITechnologistLa
 
 Ask the script to return a list of countries and their cities. 
 
-At this point, the script should have immediately re-prompted you. Ask the script to turn its last response into a md string.
+At this point, the script should have immediately re-prompted you. Ask the script to turn its last response into a json string.
 
 **Answer question 3 in ```LAB_2_QUESTIONS.md```**
 
