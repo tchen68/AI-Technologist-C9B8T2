@@ -24,7 +24,7 @@ Was the LLM able to convert its previous response to JSON format? Do you think a
 
 *** Question 4 ***
 
-Why couldn't the LLM generate a 5000 word response ~before~ we set the max_token parameter? Why couldn't the LLM generate a 100 word response ~after~ we set the max_token parameter? 
+Compare the responses you received when requesting a 5,000-word essay about the sky, a 100-word essay about the sky, and a 100-word essay about the sky again but with max_tokens=50. 
 
 *** Answer ***
 
