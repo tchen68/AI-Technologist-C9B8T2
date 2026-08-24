@@ -36,8 +36,8 @@ We need to load in some of the environment variables to initialize the OpenAI cl
 
 **Answer question 1 in ```LAB_1_QUESTIONS.md```**
 
-#### On lines 20 and 21, set the ***user_prompt*** and ***system_prompt*** variables to the following:
-```system_prompt="You are a helpful assistant."```
+#### On lines 20 and 21, set the ***user_prompt*** and ***system_role*** variables to the following:
+```system_role="You are a helpful assistant."```
 
 ```user_prompt="What is typically included in a healthcare claim?"```
 
