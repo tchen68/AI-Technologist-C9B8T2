@@ -49,3 +49,4 @@ node_modules/
 Lab4/backend/chatbot.env
 chatbot.env
 __pycache__/
+Lab4/backend/logs/*.jsonl
